@@ -1,0 +1,41 @@
+{
+  "formatVersion": 1,
+  "freeRDP": {
+    "version": "3.30.0",
+    "sourceCommit": "6b107f0aadbabc47941c5a5b893b88c01792af6d"
+  },
+  "deploymentTarget": "14.0",
+  "architectures": [
+    "arm64",
+    "x86_64"
+  ],
+  "buildConfiguration": "Release",
+  "compiler": "REPLACE_DURING_REVIEW",
+  "sdk": "REPLACE_DURING_REVIEW",
+  "cmakeOptions": [
+    "-DWITH_CLIENT_SDL=ON",
+    "-DWITH_CLIENT_SDL2=OFF",
+    "-DWITH_CLIENT_SDL3=ON",
+    "-DWITH_SDL_IMAGE_DIALOGS=OFF",
+    "-DWITH_DEBUG_NLA=OFF",
+    "-DWITH_DEBUG_NTLM=OFF"
+  ],
+  "files": [
+    {
+      "path": "Helpers/sdl-freerdp",
+      "architectures": [
+        "arm64",
+        "x86_64"
+      ],
+      "license": "Apache-2.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "REPLACE_WITH_AUDITED_DEPENDENCY",
+      "versionOrCommit": "REPLACE_DURING_REVIEW",
+      "license": "REPLACE_DURING_REVIEW",
+      "linkage": "dynamic-or-static"
+    }
+  ]
+}

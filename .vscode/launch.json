@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:RemoteHub}",
+            "name": "Debug RemoteHub",
+            "target": "RemoteHub",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug RemoteHub"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:RemoteHub}",
+            "name": "Release RemoteHub",
+            "target": "RemoteHub",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release RemoteHub"
+        }
+    ]
+}
