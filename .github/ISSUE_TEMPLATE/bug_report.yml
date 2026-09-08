@@ -1,0 +1,116 @@
+name: "🐛 Bug Report"
+description: Report a reproducible RemoteHub application problem
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug.
+
+        Do not include credentials, private keys, passphrases, access tokens,
+        real connection exports, private hostnames/IPs, terminal history, or
+        unreviewed diagnostics/screenshots.
+
+        Security vulnerabilities must be reported privately through the repository
+        security reporting process instead of a public issue.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Dashboard / navigation
+        - Connection library
+        - Workspaces / tabs
+        - Credential profiles / Keychain
+        - Import / export
+        - SSH terminal
+        - Remote file browser
+        - Transfers
+        - FreeRDP integration
+        - Settings / preferences
+        - Launch / app lifecycle
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "Example: macOS 15.6"
+    validations:
+      required: true
+
+  - type: input
+    id: hardware
+    attributes:
+      label: Mac hardware
+      placeholder: "Example: Apple Silicon M3 / Intel"
+
+  - type: input
+    id: revision
+    attributes:
+      label: RemoteHub version / commit
+      placeholder: "Example: v0.3.0 or abc1234"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem description
+      description: What went wrong?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open RemoteHub
+        2. Create or select a synthetic connection
+        3. ...
+        4. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs / diagnostics
+      description: Manually review and redact all private infrastructure and secret data first.
+      render: shell
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Sanitized screenshots
+      description: Use only synthetic/demo data and review screenshots at full resolution.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues before opening this issue.
+          required: true
+        - label: I removed credentials, keys, private infrastructure details, and other sensitive data.
+          required: true
+        - label: This is not a security vulnerability that should be reported privately.
+          required: true
