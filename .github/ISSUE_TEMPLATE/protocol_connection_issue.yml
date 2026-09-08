@@ -1,0 +1,102 @@
+name: "🔌 Protocol / Connection Issue"
+description: Report SSH, SFTP, FTP, or FTPS interoperability and connection problems
+title: "[Protocol]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use only synthetic endpoints, localhost, example.com, *.example,
+        or reserved example IP ranges in public issues.
+
+        Do not weaken or bypass SSH host-key or TLS certificate validation when
+        creating a reproduction.
+
+  - type: dropdown
+    id: protocol
+    attributes:
+      label: Protocol
+      options:
+        - SSH
+        - SFTP
+        - FTP
+        - FTPS
+    validations:
+      required: true
+
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Failure stage
+      options:
+        - Profile setup
+        - DNS / connection establishment
+        - Authentication
+        - Host-key / certificate trust
+        - Session negotiation
+        - Interactive terminal
+        - Directory listing
+        - Upload
+        - Download
+        - Rename / delete / mkdir / chmod
+        - Disconnect / cancellation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "Example: macOS 15.6"
+    validations:
+      required: true
+
+  - type: input
+    id: server
+    attributes:
+      label: Server software and version
+      description: Use generic/sanitized information only.
+      placeholder: "Example: OpenSSH 9.x on Linux"
+
+  - type: textarea
+    id: configuration
+    attributes:
+      label: Sanitized connection configuration
+      description: Do not include credentials, private hostnames, real IPs, fingerprints, or private filesystem paths.
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior / sanitized error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility notes
+      description: If possible, note whether another standards-compliant client succeeds against the same synthetic/test endpoint.
+
+  - type: checkboxes
+    id: security
+    attributes:
+      label: Safety checks
+      options:
+        - label: I did not disable or bypass certificate or host-key validation to reproduce this issue.
+          required: true
+        - label: This report contains no real credentials, private infrastructure details, or secret material.
+          required: true
