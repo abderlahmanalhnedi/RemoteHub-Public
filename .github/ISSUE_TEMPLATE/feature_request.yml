@@ -1,0 +1,73 @@
+name: "✨ Feature Request"
+description: Suggest a new RemoteHub capability or improvement
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Feature area
+      options:
+        - Dashboard / connection library
+        - Workspaces / tabs
+        - Credentials / Keychain
+        - SSH
+        - SFTP
+        - FTP / FTPS
+        - Transfers / remote browser
+        - RDP / FreeRDP
+        - Import / export
+        - Security hardening
+        - Accessibility
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What problem would this feature solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the desired behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Importance
+      options:
+        - Nice to have
+        - Useful
+        - Important
+        - Blocking my use case
+
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Project boundaries
+      options:
+        - label: This request does not require storing or exporting secrets insecurely.
+          required: true
+        - label: This request does not require weakening SSH host-key or TLS certificate validation.
+          required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Add mockups, standards references, or synthetic examples if useful.
