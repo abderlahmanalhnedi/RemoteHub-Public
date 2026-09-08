@@ -1,0 +1,89 @@
+name: "🖥️ FreeRDP / RDP Issue"
+description: Report FreeRDP discovery, preflight, launch, diagnostics, or process lifecycle problems
+title: "[FreeRDP]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        RemoteHub does not include a FreeRDP binary payload in this repository.
+        Debug builds may tolerate a missing payload; release builds require a separately reviewed payload.
+
+        Do not attach proprietary payloads, credentials, RDP files, internal hostnames,
+        or diagnostics containing sensitive system data.
+
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Failure stage
+      options:
+        - FreeRDP payload discovery
+        - Preflight checks
+        - Launch
+        - Authentication
+        - SDL window behavior
+        - Standard-input password delivery
+        - Diagnostics
+        - Process termination / lifecycle
+        - Release packaging
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "Example: macOS 15.6"
+    validations:
+      required: true
+
+  - type: input
+    id: freerdp
+    attributes:
+      label: FreeRDP version
+      placeholder: "Example: 3.x"
+
+  - type: dropdown
+    id: build
+    attributes:
+      label: Build type
+      options:
+        - Debug
+        - Release
+        - Unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: payload
+    attributes:
+      label: Payload setup
+      description: Describe how the reviewed payload was supplied. Do not upload the payload itself.
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics
+      render: shell
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I did not attach a FreeRDP binary payload or proprietary artifact.
+          required: true
+        - label: I removed credentials, hostnames, IP addresses, usernames, and private paths from diagnostics.
+          required: true
