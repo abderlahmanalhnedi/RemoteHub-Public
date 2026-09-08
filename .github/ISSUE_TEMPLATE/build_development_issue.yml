@@ -1,0 +1,78 @@
+name: "🛠️ Build / Development Issue"
+description: Report Xcode, XcodeGen, Swift, test, lint, or project-generation problems
+title: "[Build]: "
+body:
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Failing command / stage
+      options:
+        - make bootstrap
+        - make generate
+        - make build
+        - make test
+        - make ui-test
+        - make lint
+        - make core-check
+        - Xcode project open/build
+        - Package.swift / SwiftPM
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+    validations:
+      required: true
+
+  - type: input
+    id: xcode
+    attributes:
+      label: Xcode version
+      placeholder: "Example: Xcode 17.x"
+    validations:
+      required: true
+
+  - type: input
+    id: swift
+    attributes:
+      label: Swift version
+      placeholder: "Output of: swift --version"
+
+  - type: input
+    id: xcodegen
+    attributes:
+      label: XcodeGen version
+      placeholder: "If relevant"
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Sanitized command output
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you already tried?
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I am using a full Xcode installation, not Command Line Tools only.
+          required: true
+        - label: I removed local usernames, private paths, credentials, and environment secrets from the output.
+          required: true
